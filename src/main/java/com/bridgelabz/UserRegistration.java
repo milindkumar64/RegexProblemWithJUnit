@@ -4,69 +4,25 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/*
- * public class MoodAnalysar {
- * 
- * public String analysisMood(String message) {
- * 
- * if (message.contains("Sad")) { return "Sad";
- * 
- * } else { return "Happy"; }
- * 
- * }
- * 
- * }
- */
-
 public class UserRegistration {
 
-	Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) {
 
-	public boolean validateFirstName() {
-		System.out.println("Enter First Name: (mimmum three character that starts with upper cases) ");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter First Name: (mimmum three character that starts with upper case) ");
 		String firstName = sc.next();
-		Pattern p = Pattern.compile("^[A-Z][a-z]{2,}$");
-
-		Matcher mFirst = p.matcher(firstName);
-		Boolean result1 = mFirst.matches();
-		return result1;
-
-	}
-
-	public boolean validateLastName() {
 		System.out.println("Enter Last Name: (mimmum three character that starts with upper case) ");
 		String lastName = sc.next();
+		
 		Pattern p = Pattern.compile("^[A-Z][a-z]{2,}$");
+		
+		Matcher mFirst = p.matcher(firstName);
 		Matcher mLast = p.matcher(lastName);
+		Boolean result1 = mFirst.matches();
 		Boolean result2 = mLast.matches();
-		return result2;
-	}
-	
-	public boolean validateEmail() {
-		System.out.println("Enter Email : (Smaple: abc.xyz@bl.co.in) ");
-		String email = sc.next();
-		Pattern emailPattern = Pattern
-				.compile("^abc[.][a-z]{3,}@bl[.]co[.][a-z]*$");
-		Matcher emailMatcher = emailPattern.matcher(email);
-		
-		return emailMatcher.matches();
-	}
-	
-	public boolean validateMobile()
-	{
-		System.out.println("Enter Mobile number : ");
-		String mob = sc.next();
-		Pattern mobPattern = Pattern.compile("^91\\s[0-9]{10}$");
-		Matcher mobMatcher = mobPattern.matcher(mob);
-		return mobMatcher.matches();
-		
-	}
-	public boolean validatePassword(){
-		System.out.println("Enter Password must contain 8 char with atleast one Upper case: ");
-		String pass = sc.next();
-		Pattern passPattern = Pattern.compile("^(?=.*\\W)(?=.*[A-Z])(?=.*\\d).{8,}$");
-		Matcher passMatcher = passPattern.matcher(pass);
-		return passMatcher.matches();
-		
+		if (result1 && result2) {
+			System.out.println("Name is valid");
+		} else
+			System.out.println("Name is Invalid");
 	}
 }
