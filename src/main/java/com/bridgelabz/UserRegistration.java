@@ -26,10 +26,9 @@ public class UserRegistration {
 
 		System.out.println("Enter Email : ");
 		String email = sc.next();
-		Pattern emailPattern = Pattern
-				.compile("^[a-z]{3}(\\-|\\.|\\+|100|111)*[@](1|\\.)?[a-z]{3,5}([\\.][a-z]{2,3}){1,2}$");
+		Pattern emailPattern = Pattern.compile("^abc[.][a-z]{3,}@bl[.]co[.][a-z]*$");
 		Matcher emailMatcher = emailPattern.matcher(email);
-//[\\.]([a-z]{3,5})?
+
 		if (emailMatcher.matches() == false)
 			System.out.println("Invalid email Smaple: abc.xyz@bl.co.in");
 
@@ -40,12 +39,12 @@ public class UserRegistration {
 		if (mobMatcher.matches() == false)
 			System.out.println("Invalid MobNumber");
 
-		System.out.println("Enter Password must contain 8 char with atleast one Upper case: ");
+		System.out.println(
+				"Enter Password must contain 8 char with One Digit with atleast one Upper case and exactly one special Symbol: ");
 		String pass = sc.next();
 		Pattern passPattern = Pattern.compile("^(?=.*\\W)(?=.*[A-Z])(?=.*\\d).{8,}$");
 		Matcher passMatcher = passPattern.matcher(pass);
 		if (passMatcher.matches() == false)
 			System.out.println("Invalid PassWord");
-
 	}
 }
