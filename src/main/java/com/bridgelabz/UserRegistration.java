@@ -26,9 +26,10 @@ public class UserRegistration {
 
 		System.out.println("Enter Email : ");
 		String email = sc.next();
-		Pattern emailPattern = Pattern.compile("^abc[.][a-z]{3,}@bl[.]co[.][a-z]*$");
+		Pattern emailPattern = Pattern
+				.compile("^[a-z]{3}(\\-|\\.|\\+|100|111)*[@](1|\\.)?[a-z]{3,5}([\\.][a-z]{2,3}){1,2}$");
 		Matcher emailMatcher = emailPattern.matcher(email);
-
+//[\\.]([a-z]{3,5})?
 		if (emailMatcher.matches() == false)
 			System.out.println("Invalid email Smaple: abc.xyz@bl.co.in");
 
@@ -46,5 +47,6 @@ public class UserRegistration {
 		Matcher passMatcher = passPattern.matcher(pass);
 		if (passMatcher.matches() == false)
 			System.out.println("Invalid PassWord");
+
 	}
 }
