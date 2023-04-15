@@ -14,6 +14,15 @@ public class UserRegistration {
 		Pattern p = Pattern.compile("^[A-Z][a-z]{2,}$");
 		Matcher mFirst = p.matcher(firstName);
 		Boolean result1 = mFirst.matches();
+		if(!result1) {
+			try {
+				throw new InvalidDetailsException("Please input Valid details");	
+			}catch(InvalidDetailsException e) {
+		
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+			}
+		}
 		return result1;
 	}
 
@@ -23,15 +32,29 @@ public class UserRegistration {
 		Pattern p = Pattern.compile("^[A-Z][a-z]{2,}$");
 		Matcher mLast = p.matcher(lastName);
 		Boolean result2 = mLast.matches();
+		if(!result2) {
+			try {
+				throw new InvalidDetailsException("Please input Valid details");	
+			}catch(InvalidDetailsException e) {
+		
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+			}
+		}
 		return result2;
 	}
 
-	public static boolean validateLastName(String lastName) {
-
-		Pattern p = Pattern.compile("^[A-Z][a-z]{2,}$");
-		Matcher mLast = p.matcher(lastName);
-		return mLast.matches();
-	}
+	/*
+	 * public static boolean validateLastName(String lastName) {
+	 * 
+	 * Pattern p = Pattern.compile("^[A-Z][a-z]{2,}$"); Matcher mLast =
+	 * p.matcher(lastName); if(!mLast.matches()) { try { throw new
+	 * InvalidDetailsException("Please input Valid details");
+	 * }catch(InvalidDetailsException e) {
+	 * 
+	 * System.out.println(e.getMessage()); e.printStackTrace(); } } return
+	 * mLast.matches(); }
+	 */
 
 	public boolean validateEmail() {
 		System.out.println("Enter Email :");
@@ -39,6 +62,15 @@ public class UserRegistration {
 		Pattern emailPattern = Pattern
 				.compile("^[a-z]{3}(\\-|\\.|\\+|100|111)*[@](1|\\.)*[a-z]{3,5}([\\.][a-z]{2,3}){0,2}$");
 		Matcher emailMatcher = emailPattern.matcher(email);
+		if(!emailMatcher.matches()) {
+			try {
+				throw new InvalidDetailsException("Please input Valid details");	
+			}catch(InvalidDetailsException e) {
+		
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+			}
+		}
 
 		return emailMatcher.matches();
 	}
@@ -48,6 +80,16 @@ public class UserRegistration {
 		Pattern emailPattern = Pattern
 				.compile("^[a-z]{3}(\\-|\\.|\\+|100|111)*[@](1|\\.)*[a-z]{3,5}([\\.][a-z]{2,3}){0,2}$");
 		Matcher emailMatcher = emailPattern.matcher(email);
+		if(!emailMatcher.matches()) {
+			try {
+				throw new InvalidDetailsException("Please input Valid details");	
+			}catch(InvalidDetailsException e) {
+		
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+			}
+		}
+
 		return emailMatcher.matches();
 	}
 	public boolean validateMobile() {
@@ -56,6 +98,15 @@ public class UserRegistration {
 		System.out.println(mob);
 		Pattern mobPattern = Pattern.compile("^91\\s[0-9]{10}$");
 		Matcher mobMatcher = mobPattern.matcher(mob);
+		if(!mobMatcher.matches()) {
+			try {
+				throw new InvalidDetailsException("Please input Valid details");	
+			}catch(InvalidDetailsException e) {
+		
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+			}
+		}
 		return mobMatcher.matches();
 
 	}
@@ -66,6 +117,15 @@ public class UserRegistration {
 		String pass = sc.next();
 		Pattern passPattern = Pattern.compile("^(?=.*\\W)(?=.*[A-Z])(?=.*\\d).{8,}$");
 		Matcher passMatcher = passPattern.matcher(pass);
+		if(!passMatcher.matches()) {
+			try {
+				throw new InvalidDetailsException("Please input Valid details");	
+			}catch(InvalidDetailsException e) {
+		
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+			}
+		}
 		return passMatcher.matches();
 
 	}

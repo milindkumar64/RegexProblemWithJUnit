@@ -29,5 +29,4 @@ public class AddEmailTest {
 		System.out.println(email);
 		Assert.assertEquals(true, UserRegistration.validateEmail(email));
 	}
-
 }

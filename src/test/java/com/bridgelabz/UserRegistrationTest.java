@@ -40,7 +40,5 @@ public class UserRegistrationTest {
 		UserRegistration ur = new UserRegistration();
 		boolean pss = ur.validatePassword();
 		Assert.assertEquals(pss, true);
-
 	}
-
 }
