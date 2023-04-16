@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -11,6 +12,7 @@ import org.junit.runners.Parameterized;
 @RunWith(Parameterized.class)
 public class AddEmailTest {
 	String email;
+	UserRegistration ur;
 
 	public AddEmailTest(String email) {
 		this.email = email;
@@ -27,6 +29,7 @@ public class AddEmailTest {
 	@Test
 	public void testValidateLastName() {
 		System.out.println(email);
-		Assert.assertEquals(true, UserRegistration.validateEmail(email));
+		ur = new UserRegistration();
+		Assert.assertEquals(true, ur.validateEmail.test(email));
 	}
 }
